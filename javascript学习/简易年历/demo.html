@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,body {margin: 0;padding: 0;height: 100%;width: 100%;}
+        a {text-decoration: none;  color:inherit;}
+        body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td {margin: 0;padding: 0;}
+        table {border-collapse: collapse;border-spacing: 0;}
+        fieldset,img {border: 0;}
+        address,caption,cite,code,dfn,em,strong,th,var {font-style: normal;font-weight: normal;}
+        ol,ul {list-style: none;}
+        caption,th {text-align: left;}
+        h1,h2,h3,h4,h5,h6 {font-size: 100%;font-weight: normal;}
+        q:before,q:after {content: '';}
+        abbr,acronym {border: 0;}
+        body{
+            font-family: "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        }
+        .year-box{
+            width: 300px;
+        
+            background-color: #333333;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        #month-box{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        #month-box>div{
+            width: 80px;
+            height: 80px;
+            margin: 10px;
+        }
+        .month{
+            
+            background-color: #ffffff;
+            color: black;
+        }
+        .active{
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        #month-box > div >h2{
+            font-size: 24px;
+            font-weight: 700;
+            text-align: center;
+            padding: 10px;
+        }
+        #month-box > div >p{
+            font-size: 18px;
+            text-align: center;
+        }
+       
+
+
+        .act-box{
+            background-color: azure;
+            margin: 10px;
+            padding: 20px;
+        }
+        .act-box>h2{
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var oDiv1=document.getElementById('month-box');
+            var oDiv2=oDiv1.getElementsByTagName('div');
+            var Otxt=document.getElementsByClassName('act-box')[0];
+            var arr=['快过年了准备回家了',
+                     '2过年了放鞭炮穿新衣',
+                     '3','4','5','6','7','8','9','10','11','12'
+                    ]
+            for(var i=0;i<oDiv2.length;i++){
+                    oDiv2[i].index = i;
+                oDiv2[i].onmouseover=function(){
+                    for(var i=0; i<oDiv2.length; i++){
+                        oDiv2[i].classList.remove("active");
+                    }
+                    this.classList.add("active")
+
+                    Otxt.innerHTML = '<h2>'+(this.index+1)+'月活动</h2><p>'+arr[this.index]+'</p>';
+                };
+                
+            };
+            
+        };
+    </script>
+</head>
+<body>
+    <div class="year-box">
+        <div id="month-box">
+            <div class="month active"><h2>1</h2><p>JAN</p></div>
+            <div class="month"><h2>2</h2><p>FER</p></div>
+            <div class="month"><h2>3</h2><p>JAN</p></div>
+            <div class="month"><h2>4</h2><p>JAN</p></div>
+            <div class="month"><h2>5</h2><p>JAN</p></div>
+            <div class="month"><h2>6</h2><p>JAN</p></div>
+            <div class="month"><h2>7</h2><p>JAN</p></div>
+            <div class="month"><h2>8</h2><p>JAN</p></div>
+            <div class="month"><h2>9</h2><p>JAN</p></div>
+            <div class="month"><h2>10</h2><p>JAN</p></div>
+            <div class="month"><h2>11</h2><p>JAN</p></div>
+            <div class="month"><h2>12</h2><p>JAN</p></div>
+        </div>
+        <div class="act-box">
+            <h2>1月活动</h2>
+            <p>快过年了准备回家了</p>
+        </div>
+    </div>
+</body>
+</html>
